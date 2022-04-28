@@ -43,3 +43,17 @@ const team = [
       image: 'barbara-ramos-graphic-designer.jpg',
     },
 ];
+
+// ciclo for per scorrere l'array
+for (let i = 0; i < team.length; i++) {
+  const person = team[i];
+  console.log(`${i+1}° membro`);
+  const description = document.getElementById ("description");
+  description.innerHTML += (`<br>${i+1}° membro <br>`);  
+
+  // ciclo for in per scorrere l'oggetto
+  for (let key in person) {
+      console.log(key,"-", person[key]);
+      description.innerHTML += (`${key} - ${person[key]} <br>`);  
+  }
+}
