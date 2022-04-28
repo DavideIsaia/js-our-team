@@ -11,6 +11,7 @@
 // BONUS 3:
 // Utilizzare gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un nuovo oggetto, il quale viene inserito nell'array iniziale e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
 
+// array di oggetti
 const team = [
     {
       name: 'Wayne Barnett',
@@ -42,6 +43,15 @@ const team = [
       role: 'Graphic Designer',
       image: 'barbara-ramos-graphic-designer.jpg',
     },
-  ];
+];
 
-  console.log(team);
+// ciclo for per scorrere l'array
+for (let i = 0; i < team.length; i++) {
+    const person = team[i];
+    console.log(`${i+1}° membro`);
+    
+    // ciclo for in per scorrere l'oggetto
+    for (let key in person) {
+        console.log(key," - ", person[key]);
+    }
+}
