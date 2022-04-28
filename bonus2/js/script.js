@@ -36,19 +36,23 @@ const team = [
     },
 ];
 
-// // ciclo for per scorrere l'array
-// for (let i = 0; i < team.length; i++) {
-//   const person = team[i];
-//   console.log(`${i+1}° membro`);
-//   const description = document.getElementById ("description");
-//   description.innerHTML += (`<br>${i+1}° membro <br>`);  
+// ciclo for per scorrere l'array
+for (let i = 0; i < team.length; i++) {
+  const person = team[i];
+  console.log(`${i+1}° membro`);
+  const description = document.getElementById ("description");
+  description.innerHTML += (`<br>${i+1}° membro <br>`); 
+  
+  // mostro l'immagine
+  if (key = "image") {
+    description.innerHTML += (` <br> <img src="img/${person[key]}" alt="${person.name}"></img> <br>`);   
+  }
 
-//   // ciclo for in per scorrere l'oggetto
-//   for (let key in person) {
-//     console.log(key,"-", person[key]);
-//     description.innerHTML += (`${key} - ${person[key]} <br>`);
-//     if (key = "image") {
-//       description.innerHTML += (` <br> <img src="img/${person[key]}" alt="${person.name}"></img> <br>`);   
-//     }
-//   }
-// }
+  // ciclo for in per scorrere l'oggetto e aggiungere i testi
+  for (let key in person) {
+    console.log(key,"-", person[key]);
+    if (key !== "image") {
+      description.innerHTML += (`${key} - ${person[key]} <br>`);            
+    }    
+  }
+}
