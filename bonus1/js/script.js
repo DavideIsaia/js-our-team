@@ -51,5 +51,8 @@ for (let i = 0; i < team.length; i++) {
   for (let key in person) {
     console.log(key,"-", person[key]);
     description.innerHTML += (`${key} - ${person[key]} <br>`);
+    if (key = "image") {
+      description.innerHTML += (` <br> <img src="img/${person[key]}" alt="${person.name}"></img> <br>`);   
+    }
   }
 }
