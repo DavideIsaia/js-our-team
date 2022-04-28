@@ -77,10 +77,10 @@ addButton.addEventListener('click', function() {
   let inputPersonImg = document.querySelector('#image');
 
   // le metto in un oggetto
-  const newMember = {    
-      name: inputPersonName.value,
-      role: inputPersonRole.value,
-      image: inputPersonImg.value
+  const newMember = {
+    name: inputPersonName.value,
+    role: inputPersonRole.value,
+    image: inputPersonImg.value
   }
 
   // pusho l'oggetto dentro l'array
@@ -88,4 +88,9 @@ addButton.addEventListener('click', function() {
   
   // richiamo la funzione per creare le card
   createCard(inputPersonName.value, inputPersonRole.value, inputPersonImg.value);
+
+  // ripulisco i campi del form
+  inputPersonName.value = '';
+  inputPersonRole.value = '';
+  inputPersonImg.value = '';
 });
