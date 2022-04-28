@@ -36,11 +36,18 @@ const team = [
 
 const membersContainer = document.querySelector('.team-container');
 
+// collego il bottone a una variabile
+const addButton = document.querySelector('#addMemberButton');
+
 for (let i = 0; i < team.length; i++) {
   const person = team[i];
   // metto tutto dentro una funzione e la richiamo
   createCard(person.name, person.role, person.image);
-}
+};
+
+// ------------------------------------------------
+
+// FUNZIONI
 
 // funzione che crea le card con html literal
 function createCard(name, role, image) {
@@ -60,3 +67,25 @@ function createCard(name, role, image) {
   // stampo in html il container con tutte le card aggiunte
   membersContainer.innerHTML += card;
 };
+
+// funzione che risponde al clic del bottone Add
+addButton.addEventListener('click', function() {
+
+  // creo delle variabili per semplicità
+  let inputPersonName = document.querySelector('#name');
+  let inputPersonRole = document.querySelector('#role');
+  let inputPersonImg = document.querySelector('#image');
+
+  // le metto in un oggetto
+  const newMember = {    
+      name: inputPersonName.value,
+      role: inputPersonRole.value,
+      image: inputPersonImg.value
+  }
+
+  // pusho l'oggetto dentro l'array
+  team.push(newMember);
+  
+  // richiamo la funzione per creare le card
+  createCard(inputPersonName.value, inputPersonRole.value, inputPersonImg.value);
+});
