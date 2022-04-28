@@ -36,23 +36,29 @@ const team = [
     },
 ];
 
-// ciclo for per scorrere l'array
+const membersContainer = document.querySelector('.team-container');
+
 for (let i = 0; i < team.length; i++) {
   const person = team[i];
-  console.log(`${i+1}° membro`);
-  const description = document.getElementById ("description");
-  description.innerHTML += (`<br>${i+1}° membro <br>`); 
-  
-  // mostro l'immagine
-  if (key = "image") {
-    description.innerHTML += (` <br> <img src="img/${person[key]}" alt="${person.name}"></img> <br>`);   
-  }
-
-  // ciclo for in per scorrere l'oggetto e aggiungere i testi
-  for (let key in person) {
-    console.log(key,"-", person[key]);
-    if (key !== "image") {
-      description.innerHTML += (`${key} - ${person[key]} <br>`);            
-    }    
-  }
+  // metto tutto dentro una funzione e la richiamo
+  createCard(person.name, person.role, person.image);
 }
+
+// funzione che crea le card con html literal
+function createCard(name, role, image) {
+  let card = `          
+  <div class="team-card">
+      <div class="card-image">
+        <img src="img/${image}" alt=${name}"/>
+      </div>
+      <div class="card-text">
+        <h3>${name}</h3>
+        <p>${role}</p>
+      </div>
+  </div>
+  `;
+  // console.log(key,"-", person[key]);
+  
+  // stampo in html il container con tutte le card aggiunte
+  membersContainer.innerHTML += card;
+};
